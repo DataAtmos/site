@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { Toaster } from "@/components/ui/sonner"
+import { Analytics } from "@vercel/analytics/next"
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -100,6 +101,7 @@ export default function RootLayout({
       </head>
       <body className={`${jetbrainsMono.variable} font-mono`}>
         {children}
+        <Analytics />
         <Toaster />
       </body>
     </html>
