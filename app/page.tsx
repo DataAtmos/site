@@ -6,6 +6,7 @@ import { WaitlistForm } from "@/components/waitlist-form"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { Confetti } from "@/components/ui/confetti"
 import { MarketingContent } from "@/components/marketing-content"
+import { ScheduleMeeting } from "@/components/schedule-meeting"
 
 export default function Home() {
   const [showConfetti, setShowConfetti] = useState(false)
@@ -44,10 +45,12 @@ export default function Home() {
       </div>
 
       <div className="w-full pb-16 sm:pb-20">
+        <div className="mb-6 text-center">
+          <ScheduleMeeting />
+        </div>
         <WaitlistForm onShowConfetti={() => setShowConfetti(true)} />
       </div>
 
-      {/* Footer */}
       <footer className="w-full py-4 z-10">
         <div className="flex items-center justify-center gap-2 font-mono text-muted-foreground text-[10px]">
           <a href="https://x.com/dataatmos" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
