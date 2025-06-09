@@ -71,28 +71,26 @@ export function WaitlistForm({ onShowConfetti }: WaitlistFormProps) {
               else setEmailError("")
             }}
             required
-            className={`flex-1 font-mono text-base sm:text-xs px-3 py-2 border-0 border-b rounded-none ${
+            className={`flex-1 font-mono text-sm sm:text-xs px-3 py-2 border-0 border-b rounded-none ${
               emailError ? "border-red-500" : ""
             }`}
-            style={{ fontSize: "16px" }}
           />
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
                 variant="outline"
-                className="font-mono text-base sm:text-xs border-0 border-b rounded-none w-full sm:w-40 justify-between"
-                style={{ fontSize: "16px" }}
+                className="font-mono text-sm sm:text-xs border-0 border-b rounded-none w-full sm:w-40 justify-between"
               >
                 {type === "indie" ? "Indie Developer" : "Organization"}
                 <ChevronDown className="ml-2 h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              <DropdownMenuItem onClick={() => setType("indie")} className="font-mono text-base sm:text-xs">
+              <DropdownMenuItem onClick={() => setType("indie")} className="font-mono text-sm sm:text-xs">
                 Indie Developer
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setType("org")} className="font-mono text-base sm:text-xs">
+              <DropdownMenuItem onClick={() => setType("org")} className="font-mono text-sm sm:text-xs">
                 Organization
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -101,8 +99,7 @@ export function WaitlistForm({ onShowConfetti }: WaitlistFormProps) {
           <Button
             type="submit"
             disabled={isPending}
-            className="font-mono text-base sm:text-xs px-6 py-2 sm:w-40 w-full whitespace-nowrap rounded-none bg-foreground text-background hover:bg-foreground/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
-            style={{ fontSize: "16px" }}
+            className="font-mono text-sm sm:text-xs px-6 py-2 sm:w-40 w-full whitespace-nowrap rounded-none bg-foreground text-background hover:bg-foreground/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
           >
             {isPending ? "..." : "Join the waitlist"}
           </Button>
