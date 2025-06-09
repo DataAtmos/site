@@ -14,6 +14,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://dataatmos.ai"),
   title: "Data Atmos - Unify your OLTP, OLAP, and AI Orchestration",
   description:
     "DataAtmos consolidates database operations, data-lake pipelines, and AI/ML workflows in one cloud-native platform. Enterprise-grade governance for small and mid-sized businesses.",
@@ -103,7 +104,7 @@ export default function RootLayout({
       </head>
       <body className={`${jetbrainsMono.variable} font-mono`}>
         <Suspense fallback={null}>
-          <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
             {children}
             <Analytics />
             <Toaster />

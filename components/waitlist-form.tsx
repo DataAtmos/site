@@ -52,14 +52,15 @@ export function WaitlistForm({ onShowConfetti }: WaitlistFormProps) {
         }
       } catch (error) {
         toast.error("Something went wrong. Please try again.")
+        console.error(error)
       }
     })
   }
 
   return (
-    <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 z-10 w-full max-w-2xl px-4">
-      <form onSubmit={handleSubmit} className="space-y-2">
-        <div className="flex flex-col sm:flex-row items-stretch">
+    <div className="w-full max-w-2xl mx-auto px-4">
+      <form onSubmit={handleSubmit} className="space-y-3">
+        <div className="flex flex-col sm:flex-row items-stretch gap-2 sm:gap-0">
           <Input
             type="email"
             placeholder="you@company.com"
@@ -70,13 +71,10 @@ export function WaitlistForm({ onShowConfetti }: WaitlistFormProps) {
               else setEmailError("")
             }}
             required
-            style={{
-              width: "100%",
-              paddingLeft: "12px",
-            }}
-            className={`flex-1 font-mono text-base sm:text-xs pl-0 pr-0 py-2 border-0 border-b rounded-none sm:w-[450px] ${
+            className={`flex-1 font-mono text-base sm:text-xs px-3 py-2 border-0 border-b rounded-none ${
               emailError ? "border-red-500" : ""
             }`}
+            style={{ fontSize: "16px" }}
           />
 
           <DropdownMenu>
@@ -84,6 +82,7 @@ export function WaitlistForm({ onShowConfetti }: WaitlistFormProps) {
               <Button
                 variant="outline"
                 className="font-mono text-base sm:text-xs border-0 border-b rounded-none w-full sm:w-40 justify-between"
+                style={{ fontSize: "16px" }}
               >
                 {type === "indie" ? "Indie Developer" : "Organization"}
                 <ChevronDown className="ml-2 h-4 w-4" />
@@ -102,13 +101,14 @@ export function WaitlistForm({ onShowConfetti }: WaitlistFormProps) {
           <Button
             type="submit"
             disabled={isPending}
-            className="font-mono text-base sm:text-xs px-6 py-2 sm:w-40 w-full mt-2 sm:mt-0 whitespace-nowrap rounded-none bg-black text-white hover:bg-black/90 dark:bg-black dark:text-white dark:hover:bg-black/90"
+            className="font-mono text-base sm:text-xs px-6 py-2 sm:w-40 w-full whitespace-nowrap rounded-none bg-foreground text-background hover:bg-foreground/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
+            style={{ fontSize: "16px" }}
           >
             {isPending ? "..." : "Join the waitlist"}
           </Button>
         </div>
 
-        {emailError && <p className="font-mono text-red-400 text-xs">{emailError}</p>}
+        {emailError && <p className="font-mono text-red-400 text-xs px-3">{emailError}</p>}
       </form>
     </div>
   )
